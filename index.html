@@ -1,37 +1,134 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>goormtest</title>
+    <title>joonsu_profile</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Product Designer</h1>
-    <h2>Product Designer</h2>
-    <h3>Product Designer</h3>
-    <h4>Product Designer</h4>
-    <h5>Product Designer</h5>
-    <h6>Product Designer</h6>
-    <section>
-      <picture>
-        <source
-          srcset="
-            https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
-          "
-          media="(min-width: 800px)"
-        />
-        <source
-          srcset="
-            https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
-          "
-          media="(min-width: 400px)"
-        />
-        <img
-          src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-          alt="Google Logo"
-        />
-      </picture>
-    </section>
+    <div class="portfolio">
+      <!-- 상단 영역 -->
+      <div class="top-row">
+        <!-- 좌측: 프로필 + 소개 -->
+        <div class="left-section">
+          <div class="header-row">
+            <div class="profile-image">
+              <img src="assets/profile.jpg" alt="Profile" />
+            </div>
+            <div class="name-section">
+              <p>JOONSU</p>
+            </div>
+          </div>
+          <div class="description-section">
+            <p>
+              Product Designer who loves the intersection of design and code.
+              Interested in interactive coding and web publishing.
+            </p>
+          </div>
+        </div>
+
+        <!-- 우측: 폼 -->
+        <div class="form-section">
+          <form>
+            <div class="form-fields">
+              <div class="field-group">
+                <label>Name</label>
+                <div class="input-wrapper">
+                  <input type="text" placeholder="이름을 입력하세요." />
+                </div>
+              </div>
+              <div class="field-group">
+                <label>Email</label>
+                <div class="input-wrapper">
+                  <input type="email" placeholder="이메일을 입력하세요." />
+                </div>
+              </div>
+              <div class="field-group">
+                <label>Message</label>
+                <div class="textarea-wrapper">
+                  <textarea
+                    placeholder="내용을 입력하세요."
+                    maxlength="300"
+                  ></textarea>
+                  <div class="char-count">
+                    <span class="current-count">0</span>/<span>300</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="submit-btn">보내기</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- 하단 영역 -->
+      <div class="bottom-row">
+        <div class="contact-section">
+          <div class="email-box">
+            <p>junsu6580@gmail.com</p>
+          </div>
+          <div class="phone-box">
+            <p>010-4496-6580</p>
+          </div>
+        </div>
+        <a
+          href="https://github.com/joooon28"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="github-section"
+        >
+          <img
+            src="assets/github-black.svg"
+            alt="GitHub"
+            class="icon-default"
+          />
+          <img
+            src="assets/github-white.svg"
+            alt="GitHub"
+            class="icon-hover"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/joons_foto?igsh=MXUwbHR5cWg3MHNqdw%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-section"
+        >
+          <img
+            src="assets/instagram-black.svg"
+            alt="Instagram"
+            class="icon-default"
+          />
+          <img
+            src="assets/instagram-white.svg"
+            alt="Instagram"
+            class="icon-hover"
+          />
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const textarea = document.querySelector("textarea");
+      const currentCount = document.querySelector(".current-count");
+      textarea.addEventListener("input", function () {
+        currentCount.textContent = this.value.length;
+      });
+
+      const emailInput = document.querySelector('input[type="email"]');
+      const formSection = document.querySelector(".form-section");
+      emailInput.addEventListener("input", function () {
+        if (this.value && !this.validity.valid) {
+          formSection.classList.add("email-invalid");
+        } else {
+          formSection.classList.remove("email-invalid");
+        }
+      });
+    </script>
   </body>
 </html>

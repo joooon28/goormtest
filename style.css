@@ -1,18 +1,436 @@
-h1 {
-  color: blue;
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-h2 {
-  color: green;
+
+body {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  background-color: #020916;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-h3 {
-  color: red;
+
+/* ===== 전체 레이아웃 ===== */
+.portfolio {
+  width: 1440px;
+  margin: 0 auto;
+  background: #fff;
 }
-h4 {
-  color: purple;
+
+/* ===== 상단 영역 ===== */
+.top-row {
+  display: flex;
 }
-h5 {
-  color: orange;
+
+/* 좌측 섹션 */
+.left-section {
+  display: flex;
+  flex-direction: column;
+  width: 864px;
 }
-h6 {
-  color: pink;
+
+.header-row {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #000;
+  transition: background-color 0.3s;
+}
+
+.header-row:hover {
+  background-color: #020916;
+}
+
+.profile-image {
+  width: 288px;
+  height: 288px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.name-section p {
+  font-size: 141.785px;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: -3.55px;
+  line-height: 1.4;
+  color: #000;
+  transition: color 0.3s;
+}
+
+.header-row:hover .name-section p {
+  color: #fff;
+}
+
+.description-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  overflow: hidden;
+  padding: 20px;
+  transition: background-color 0.3s;
+}
+
+.description-section p {
+  font-size: 46px;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: -1.15px;
+  line-height: 1.4;
+  color: #000;
+  transition: color 0.3s;
+}
+
+.description-section:hover {
+  background-color: #020916;
+}
+
+.description-section:hover p {
+  color: #fff;
+}
+
+/* 우측 폼 섹션 */
+.form-section {
+  width: 576px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.form-section:hover,
+.form-section:focus-within {
+  background-color: #020916;
+}
+
+.form-section.email-invalid {
+  background-color: #b80003;
+}
+
+form {
+  width: 536px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #020916;
+  letter-spacing: -0.4px;
+  line-height: 1.4;
+  transition: color 0.3s;
+}
+
+.form-section:hover label,
+.form-section:focus-within label {
+  color: #fff;
+}
+
+.input-wrapper {
+  background-color: #020916;
+  transition: background-color 0.3s;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 20px;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.35px;
+  line-height: 1.4;
+  color: #fff;
+  background-color: #020916;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.input-wrapper input::placeholder {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.form-section:hover .input-wrapper,
+.form-section:focus-within .input-wrapper {
+  background-color: #fff;
+}
+
+.form-section:hover .input-wrapper input,
+.form-section:focus-within .input-wrapper input {
+  background-color: #fff;
+  color: #020916;
+}
+
+.form-section:hover .input-wrapper input::placeholder,
+.form-section:focus-within .input-wrapper input::placeholder {
+  color: #020916;
+}
+
+.textarea-wrapper {
+  background-color: #020916;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 18px;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+.textarea-wrapper textarea {
+  width: 100%;
+  height: 122px;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.35px;
+  line-height: 1.4;
+  color: #fff;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  transition: color 0.3s;
+}
+
+.textarea-wrapper textarea::placeholder {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.char-count {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.35px;
+  line-height: 1.4;
+  transition: color 0.3s;
+}
+
+.form-section:hover .textarea-wrapper,
+.form-section:focus-within .textarea-wrapper {
+  background-color: #fff;
+}
+
+.form-section:hover .textarea-wrapper textarea,
+.form-section:focus-within .textarea-wrapper textarea {
+  color: #020916;
+}
+
+.form-section:hover .textarea-wrapper textarea::placeholder,
+.form-section:focus-within .textarea-wrapper textarea::placeholder {
+  color: #020916;
+}
+
+.form-section:hover .char-count,
+.form-section:focus-within .char-count {
+  color: #020916;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 44px;
+  background-color: #020916;
+  color: #fff;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.form-section:hover .submit-btn,
+.form-section:focus-within .submit-btn {
+  background-color: #fff;
+  color: #020916;
+}
+
+/* ===== 하단 영역 ===== */
+.bottom-row {
+  display: flex;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+}
+
+.email-box,
+.phone-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  overflow: hidden;
+  transition: background-color 0.3s;
+}
+
+.email-box p {
+  font-size: 80px;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: -2px;
+  line-height: 1.4;
+  width: 480px;
+  word-break: break-all;
+  color: #000;
+  transition: color 0.3s;
+}
+
+.phone-box p {
+  font-size: 85px;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: -2.125px;
+  line-height: 1.4;
+  width: 480px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  transition: color 0.3s;
+}
+
+.email-box:hover,
+.phone-box:hover {
+  background-color: #020916;
+}
+
+.email-box:hover p,
+.phone-box:hover p {
+  color: #fff;
+}
+
+/* GitHub 섹션 */
+.github-section {
+  width: 480px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  overflow: hidden;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.github-section .icon-default {
+  width: 420px;
+  height: 410px;
+}
+
+.github-section .icon-hover {
+  width: 420px;
+  height: 410px;
+  display: none;
+}
+
+.github-section:hover {
+  background-color: #020916;
+}
+
+.github-section:hover .icon-default {
+  display: none;
+}
+
+.github-section:hover .icon-hover {
+  display: block;
+}
+
+/* Instagram 섹션 */
+.instagram-section {
+  width: 480px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #000;
+  overflow: hidden;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.instagram-section .icon-default {
+  width: 320px;
+  height: 320px;
+}
+
+.instagram-section .icon-hover {
+  width: 320px;
+  height: 320px;
+  display: none;
+}
+
+.instagram-section:hover {
+  background: radial-gradient(
+      29.71% 138.9% at -5.36% 3.57%,
+      #406adc 15.67%,
+      #6a45be 46.78%,
+      rgba(106, 69, 190, 0) 100%
+    ),
+    radial-gradient(
+      80.69% 80.69% at 32.14% 103.57%,
+      #e0e8b7 0%,
+      #fb8a2e 44.47%,
+      #e2425c 71.47%,
+      rgba(226, 66, 92, 0) 100%
+    ),
+    radial-gradient(
+      91.14% 91.14% at 35.71% 75%,
+      #b13589 0%,
+      #c62f94 79.31%,
+      #8a3ac8 100%
+    );
+}
+
+.instagram-section:hover .icon-default {
+  display: none;
+}
+
+.instagram-section:hover .icon-hover {
+  display: block;
 }
